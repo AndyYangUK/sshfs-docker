@@ -50,6 +50,8 @@ Then, **add the public key** to your **SFTP server**:
 ssh-copy-id -i ./ssh_keys/id_rsa.pub user@sftp-server
 ```
 
+If, like me, your device (Synology NAS) doesn't have ssh-copy-id command available, then you need to **manually copy the public key** to your **SFTP server**:
+
 ---
 
 ### 4️⃣ Navigate to the Project Folder
