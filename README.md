@@ -34,7 +34,7 @@ Easily mount an **SFTP folder** inside a **Docker container** on your **Synology
 
 ### 2️⃣ Clone This Repository
 ```sh
-git clone https://github.com/yourusername/sshfs-docker.git
+git clone https://github.com/andyyanguk/sshfs-docker.git
 cd sshfs-docker
 ```
 
@@ -108,16 +108,3 @@ ls /volume1/remote_sftp
   ```
 
 ---
-
-## 🛠️ Troubleshooting
-**Issue**: "Permission denied" when accessing the SFTP folder.  
-✅ **Fix**: Ensure correct SSH key permissions inside the container:
-```sh
-chmod 600 ssh_keys/id_rsa
-```
-
-**Issue**: "Read-only file system" inside the mount folder.  
-✅ **Fix**: Add `-o idmap=user` to the `sshfs` command in `docker-compose.yml`.
-
-**Issue**: "Connection refused" when mounting SFTP.  
-✅ **Fix**: Ensure your **SFTP server** allows SSHFS connections.
