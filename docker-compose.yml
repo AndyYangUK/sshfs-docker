@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  sshfs:
+    build: .
+    container_name: sshfs-container
+    privileged: true
+    restart: unless-stopped
+    volumes:
+      - /volume1/remote_sftp:/mnt/sftp
+      - ./ssh_keys:/root/.ssh  # Mount SSH key directory (optional)
+    command: >
+      sh -c "chmod 600 /root/.ssh/id_rsa && sshfs -o IdentityFile=/root/.ssh/id_rsa,allow_other,default_permissions user@sftp-server:/remote/path /mnt/sftp && sleep infinity"
